@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warn: var(--warn);
+  --color-warn-foreground: var(--warn-foreground);
+  
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  :root {
+    /* Flat Dark Mobile-First Theme */
+    --background: 240 20% 15%; /* #1e1e2d */
+    --foreground: 0 0% 98%;
+
+    --card: 236 22% 20%; /* #27293d */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 236 22% 20%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 153 60% 53%; /* vibrant green from reference image */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 236 22% 25%;
+    --muted-foreground: 220 10% 70%;
+    
+    --accent: 25 100% 60%; /* Orange gradient accent */
+    --accent-foreground: 0 0% 100%;
+
+    --border: 236 22% 25%;
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Removed background-image and background-attachment for deep black aesthetic */
+}
+
+* {
+  border-color: var(--border);
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); 
+}
