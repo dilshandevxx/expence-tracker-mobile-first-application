@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useAppContext } from '@/lib/store';
-import { AlertCircle } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 
 export default function GlobalAlerts() {
   const { expenses, limits, isLoaded } = useAppContext();
@@ -29,17 +29,29 @@ export default function GlobalAlerts() {
   if (exceededCategories.length === 0) return null;
 
   return (
-    <div className="w-full px-6 flex flex-col gap-3 mb-2 z-50">
+    <div className="w-full px-6 flex flex-col gap-3 mb-4 z-50">
       {exceededCategories.map(cat => (
-        <div key={cat.category} className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 flex items-center gap-3">
-          <div className="bg-red-500/20 p-2 rounded-full text-red-400">
-             <AlertCircle className="w-5 h-5 flex-shrink-0" />
+        <div key={cat.category} className="relative overflow-hidden bg-gradient-to-br from-red-500/10 via-[#27293d] to-[#27293d] border border-red-500/20 shadow-[0_4px_20px_rgba(239,68,68,0.15)] rounded-2xl p-4 flex items-start gap-4 transition-all">
+          
+          {/* Glowing Red Background Blur Effect */}
+          <div className="absolute -top-10 -left-10 w-32 h-32 bg-red-500/20 blur-3xl rounded-full mix-blend-screen pointer-events-none" />
+          
+          <div className="bg-red-500/20 p-2.5 rounded-xl text-red-400 border border-red-500/20 shadow-inner relative z-10 flex items-center justify-center">
+             <AlertTriangle className="w-5 h-5 flex-shrink-0 animate-pulse" />
           </div>
-          <div className="flex-1">
-             <h4 className="text-white font-medium text-sm">Budget Warning</h4>
-             <p className="text-zinc-400 text-xs mt-0.5">
-               You have exceeded your monthly limit for <span className="text-red-400 font-semibold">{cat.category}</span>.
+          
+          <div className="flex-1 relative z-10 pt-0.5">
+             <h4 className="text-red-400 font-semibold text-sm drop-shadow-md">
+               Budget Exceeded
+             </h4>
+             <p className="text-zinc-300 text-xs mt-1.5 leading-relaxed">
+               Your spending in <span className="text-white font-bold px-1.5 py-0.5 bg-red-500/20 rounded-md border border-red-500/30 mx-0.5">{cat.category}</span> is now over the limit!
              </p>
+          </div>
+          
+          {/* Watermark Icon */}
+          <div className="absolute -bottom-4 -right-2 p-4 opacity-[0.03] pointer-events-none rotate-12">
+             <AlertTriangle className="w-24 h-24 text-red-500" />
           </div>
         </div>
       ))}
