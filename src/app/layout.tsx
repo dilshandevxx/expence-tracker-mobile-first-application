@@ -26,15 +26,16 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen w-full max-w-[500px] mx-auto bg-[#1e1e2d] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
             
             {/* Mobile-First Top Bar */}
-            <header className="flex items-center justify-between p-6">
-              <button className="text-white">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <header className="flex items-center justify-between p-6 pb-4">
+              <button className="h-11 w-11 rounded-full bg-[#27293d] flex items-center justify-center text-white hover:bg-white/10 transition-all active:scale-95 border border-white/5 shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="4" x2="20" y1="12" y2="12" />
-                  <line x1="4" x2="20" y1="6" y2="6" />
+                  <line x1="4" x2="14" y1="6" y2="6" />
+                  <line x1="10" x2="20" y1="18" y2="18" />
                 </svg>
               </button>
               
-              <div className="h-10 w-10 rounded-[0.7rem] overflow-hidden border border-white/5 relative bg-black">
+              <div className="h-11 w-11 rounded-full overflow-hidden border-2 border-[#27293d] relative bg-black shadow-[0_0_15px_rgba(139,92,246,0.3)] ring-2 ring-[#1e1e2d] hover:scale-105 transition-transform cursor-pointer">
                 <img 
                   src="/avatar.png" 
                   alt="User Avatar"
